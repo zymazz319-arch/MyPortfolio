@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Michael Zyburts Portfolio - Dual-discipline Electrical & Aerospace Engineer | Avionics, Propulsion, Autonomous Systems">
-    <title>Michael Zyburt | Portfolio</title>
-    <!-- Tailwind CSS CDN (for a fully self-contained modern website) -->
+    <title>Michael Zyburts | Portfolio</title>
+    <!-- Tailwind CSS CDN (mobile-first & highly responsive) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -32,21 +32,6 @@
         
         .hero-bg {
             background: linear-gradient(135deg, #0a1428 0%, #112a4a 100%);
-        }
-        
-        .section-header {
-            position: relative;
-        }
-        
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 64px;
-            height: 3px;
-            background: #00d4ff;
-            border-radius: 9999px;
         }
         
         .project-card {
@@ -94,6 +79,13 @@
             z-index: 50;
             width: 100%;
         }
+        
+        /* Enhanced mobile optimizations */
+        @media (max-width: 640px) {
+            .hero-text { font-size: 2.5rem; line-height: 1.1; }
+            .section-header { font-size: 2rem; }
+            .project-card { margin-bottom: 1.5rem; }
+        }
     </style>
 </head>
 <body class="tail-container bg-[#0a1428] text-white overflow-x-hidden">
@@ -101,8 +93,8 @@
     <div id="scrollProgress" class="scroll-progress"></div>
 
     <!-- NAVBAR -->
-    <nav class="bg-[#0a1428]/90 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
+    <nav class="bg-[#0a1428]/95 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
             <div class="flex items-center gap-x-3">
                 <div class="w-9 h-9 bg-gradient-to-br from-[#00d4ff] to-[#00a8cc] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">MZ</div>
                 <h1 class="heading-font text-2xl tracking-tighter">Michael Zyburts</h1>
@@ -111,63 +103,80 @@
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
                 <a onclick="navigateToSection('about')" class="nav-link cursor-pointer">ABOUT</a>
                 <a onclick="navigateToSection('skills')" class="nav-link cursor-pointer">SKILLS</a>
+                <a onclick="navigateToSection('publications')" class="nav-link cursor-pointer">PUBLICATIONS</a>
                 <a onclick="navigateToSection('projects')" class="nav-link cursor-pointer">PROJECTS</a>
                 <a onclick="navigateToSection('education')" class="nav-link cursor-pointer">EDUCATION</a>
             </div>
             
-            <div class="flex items-center gap-x-4">
+            <div class="flex items-center gap-x-3">
                 <a href="https://www.ucirvine.edu/" target="_blank" 
                    class="flex items-center gap-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-3xl text-sm font-medium">
                     <i class="fa-solid fa-university"></i>
                     <span class="hidden sm:inline">UCI Samueli</span>
                 </a>
-                <!-- Add your LinkedIn / GitHub / Email here once provided -->
-                <button onclick="copyEmail()" 
+                <button onclick="copyContact()" 
                         class="flex items-center gap-x-2 bg-[#00d4ff] hover:bg-[#00a8cc] text-[#0a1428] px-6 py-2.5 rounded-3xl font-semibold text-sm">
                     <i class="fa-solid fa-envelope"></i>
-                    <span>Get in Touch</span>
+                    <span class="hidden sm:inline">Get in Touch</span>
                 </button>
                 
-                <!-- Mobile Menu -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl p-1">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden px-8 pb-6 border-t border-white/10">
+        <div id="mobileMenu" class="hidden md:hidden px-6 pb-6 border-t border-white/10 bg-[#0a1428]">
             <div class="flex flex-col gap-y-4 text-sm font-medium pt-4">
                 <a onclick="navigateToSection('about');toggleMobileMenu()" class="py-2">ABOUT</a>
                 <a onclick="navigateToSection('skills');toggleMobileMenu()" class="py-2">SKILLS</a>
+                <a onclick="navigateToSection('publications');toggleMobileMenu()" class="py-2">PUBLICATIONS</a>
                 <a onclick="navigateToSection('projects');toggleMobileMenu()" class="py-2">PROJECTS</a>
                 <a onclick="navigateToSection('education');toggleMobileMenu()" class="py-2">EDUCATION</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION (matches your cover slide) -->
+    <!-- HERO SECTION -->
     <section id="hero" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-12 md:py-0 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <!-- Left Content -->
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-sm font-medium px-5 py-2 rounded-3xl">
+            <div class="space-y-6 md:space-y-8">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-xs md:text-sm font-medium px-5 py-2 rounded-3xl">
                     <span class="relative flex h-3 w-3">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d4ff] opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00d4ff]"></span>
                     </span>
-                    MS Electrical Engineering • Graduating June 2026
+                    MS Electrical Engineering • Expected June 2026
                 </div>
                 
-                <h1 class="text-6xl md:text-7xl leading-none heading-font tracking-tighter">
-                    Michael Zyburt
+                <h1 class="hero-text text-5xl md:text-7xl leading-none heading-font tracking-tighter">
+                    Michael Zyburts
                 </h1>
                 
-                <p class="text-2xl text-[#00d4ff] max-w-md">Dual-discipline engineer turning ideas into flight-ready hardware</p>
+                <p class="text-xl md:text-2xl text-[#00d4ff]">Dual-discipline engineer turning ideas into flight-ready hardware</p>
                 
-                <div class="max-w-md text-lg leading-relaxed text-white/90">
+                <div class="max-w-md text-base md:text-lg leading-relaxed text-white/90">
                     “Scientists study the world as it is; engineers create the world that has never been” 
                     <span class="text-[#00d4ff] font-medium">— Theodore von Kármán</span>
+                </div>
+                
+                <!-- Contact strip -->
+                <div class="flex flex-wrap items-center gap-x-6 text-sm bg-white/10 backdrop-blur-md px-6 py-4 rounded-3xl">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-location-dot text-[#00d4ff]"></i>
+                        <span>Carlsbad, CA</span>
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-phone text-[#00d4ff]"></i>
+                        <a href="tel:7609789257" class="hover:text-[#00d4ff]">760-978-9257</a>
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-envelope text-[#00d4ff]"></i>
+                        <a onclick="copyContact()" class="hover:text-[#00d4ff]">michaelzyburt@gmail.com</a>
+                    </div>
                 </div>
                 
                 <div class="flex flex-wrap gap-4">
@@ -176,38 +185,37 @@
                         <span>Explore My Projects</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="#" onclick="window.open('https://www.ucirvine.edu/', '_blank')" 
+                    <a href="http://www.linkedin.com/in/michael-zyburt-" target="_blank" 
                        class="border border-white/30 hover:border-white/60 px-8 py-4 rounded-3xl flex items-center gap-x-3 text-lg">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <span>UC Irvine Engineering</span>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>LinkedIn</span>
                     </a>
                 </div>
                 
                 <!-- Education badges -->
-                <div class="flex flex-wrap gap-6 text-sm pt-8 border-t border-white/10">
+                <div class="flex flex-wrap gap-6 text-sm pt-6 border-t border-white/10">
                     <div>
                         <div class="text-[#00d4ff]">MS Electrical Engineering</div>
-                        <div class="font-medium">UC Irvine • June 2026</div>
+                        <div class="font-medium">UC Irvine • Expected June 2026</div>
                     </div>
                     <div>
                         <div class="text-[#00d4ff]">BS Aerospace Engineering</div>
-                        <div class="font-medium">UC Irvine • June 2024</div>
+                        <div class="font-medium">UC Irvine • June 2024 • GPA 3.4</div>
                     </div>
                     <div>
                         <div class="text-[#00d4ff]">BS Electrical Engineering</div>
-                        <div class="font-medium">UC Irvine • June 2024</div>
+                        <div class="font-medium">UC Irvine • June 2024 • GPA 3.4</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Right Visual (hero image from your slide) -->
+            <!-- Right Visual -->
             <div class="relative">
-                <div class="aspect-square bg-gradient-to-br from-[#112a4a] to-transparent rounded-[4rem] p-8 flex items-center justify-center relative overflow-hidden">
-                    <!-- Placeholder for your actual hero image - replace src with high-res export from Google Slides -->
-                    <img src="https://picsum.photos/id/1015/800/800" alt="Michael Zyburts Portfolio Hero - Avionics & Rocket Systems" 
+                <div class="aspect-square bg-gradient-to-br from-[#112a4a] to-transparent rounded-[3rem] md:rounded-[4rem] p-6 md:p-8 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://picsum.photos/id/1015/800/800" alt="Michael Zyburts Portfolio Hero" 
                          class="rounded-3xl shadow-2xl object-cover w-full h-full">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a1428] via-transparent to-transparent rounded-[4rem]"></div>
-                    <div class="absolute bottom-12 left-12 bg-white/10 backdrop-blur-md px-6 py-3 rounded-3xl text-sm flex items-center gap-x-3">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a1428] via-transparent to-transparent rounded-[3rem] md:rounded-[4rem]"></div>
+                    <div class="absolute bottom-8 left-8 bg-white/10 backdrop-blur-md px-6 py-3 rounded-3xl text-sm flex items-center gap-x-3">
                         <i class="fa-solid fa-rocket text-[#00d4ff]"></i>
                         <div>
                             <span class="font-medium">Currently building</span><br>
@@ -218,155 +226,145 @@
             </div>
         </div>
         
-        <!-- Decorative dots from your slides -->
-        <div class="absolute bottom-0 right-12 hidden lg:block">
-            <div class="text-[180px] font-black text-white/5 leading-none heading-font">MZ</div>
+        <div class="absolute bottom-0 right-8 hidden lg:block">
+            <div class="text-[160px] md:text-[180px] font-black text-white/5 leading-none heading-font">MZ</div>
         </div>
     </section>
 
-    <!-- ABOUT / SYSTEMS & DESIGN BACKGROUND -->
-    <section id="about" class="max-w-screen-2xl mx-auto px-8 py-24">
-        <div class="grid md:grid-cols-12 gap-16 items-start">
+    <!-- ABOUT -->
+    <section id="about" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <div class="grid md:grid-cols-12 gap-12 items-start">
             <div class="md:col-span-5">
                 <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Systems &amp; Design Background</span>
-                <h2 class="heading-font text-5xl tracking-tighter mt-3">Dual-discipline engineer focused on rapid prototyping, testing, and avionics integration</h2>
+                <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mt-3">Dual-discipline engineer focused on rapid prototyping, testing, and avionics integration</h2>
                 <div class="h-px w-12 bg-[#00d4ff] my-8"></div>
             </div>
-            <div class="md:col-span-7 text-lg leading-relaxed text-white/80">
+            <div class="md:col-span-7 text-base md:text-lg leading-relaxed text-white/80">
                 <p class="mb-6">Brings a rigorous, hands-on approach to engineering challenges, demonstrated through the ground-up design of custom amplifiers, autonomous rovers, and maglev control systems.</p>
                 <p>Skilled in the full hardware lifecycle—from CAD modeling and BOM management to SMT soldering and rigorous performance testing. Committed to designing reliable, fault-tolerant electrical systems for mission-critical applications.</p>
-                
-                <div class="mt-12 flex items-center gap-x-8 text-sm">
-                    <div class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[#00d4ff]"></i> Avionics Integration</div>
-                    <div class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[#00d4ff]"></i> Rapid Prototyping</div>
-                    <div class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[#00d4ff]"></i> Fault-Tolerant Systems</div>
-                    <div class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[#00d4ff]"></i> High-Altitude &amp; Rocket Payloads</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- TECHNICAL ARSENAL / SKILLS -->
-    <section id="skills" class="bg-[#112a4a] py-24">
-        <div class="max-w-screen-2xl mx-auto px-8">
+    <!-- TECHNICAL SKILLS -->
+    <section id="skills" class="bg-[#112a4a] py-16 md:py-24">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
             <div class="flex justify-between items-baseline mb-12">
                 <div>
-                    <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Technical Arsenal</span>
-                    <h2 class="heading-font text-5xl tracking-tighter">Tools • Hardware • Expertise</h2>
+                    <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Technical Skills</span>
+                    <h2 class="heading-font text-4xl md:text-5xl tracking-tighter">Engineering Analysis • Hardware • Testing</h2>
                 </div>
-                <p class="text-white/60 max-w-xs text-right">From MATLAB simulations to flight-ready hardware — I build the systems that push the limits of what’s possible.</p>
             </div>
             
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Column 1: Engineering Analysis & Design -->
+            <div class="grid md:grid-cols-4 gap-6 md:gap-8">
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-cube"></i> ENGINEERING ANALYSIS &amp; DESIGN</h4>
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-cube"></i> Engineering Analysis &amp; Design</h4>
                     <ul class="space-y-4 text-sm">
-                        <li class="flex justify-between"><span>MATLAB, Python, C++</span></li>
-                        <li class="flex justify-between"><span>VHDL (FPGA)</span></li>
-                        <li class="flex justify-between"><span>SolidWorks CAD Modeling</span></li>
-                        <li class="flex justify-between"><span>PID Controllers &amp; Feedback Loops</span></li>
-                        <li class="flex justify-between"><span>Digital Signal Processing (DSP)</span></li>
+                        <li>MATLAB, Python, C++</li>
+                        <li>VHDL (FPGA)</li>
+                        <li>SolidWorks (CAD)</li>
+                        <li>PID Controllers</li>
+                        <li>Digital Signal Processing (DSP)</li>
+                        <li>Circuit Design</li>
                     </ul>
                 </div>
-                
-                <!-- Column 2: Hardware, Avionics &amp; Electronics -->
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-microchip"></i> HARDWARE, AVIONICS &amp; ELECTRONICS</h4>
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-microchip"></i> Hardware &amp; Avionics</h4>
                     <ul class="space-y-4 text-sm">
-                        <li class="flex justify-between"><span>Wire Harness Design &amp; Connector Assembly</span></li>
-                        <li class="flex justify-between"><span>PCB Rework &amp; Advanced SMT Soldering</span></li>
-                        <li class="flex justify-between"><span>Custom Sensor Board Design &amp; Population</span></li>
-                        <li class="flex justify-between"><span>Analog Circuit &amp; Amplifier Development</span></li>
-                        <li class="flex justify-between"><span>Arduino-based System Development</span></li>
+                        <li>Wire Harness Design</li>
+                        <li>PCB Rework &amp; Repair</li>
+                        <li>Advanced Soldering (SMT, fine-pitch)</li>
+                        <li>Connector Assembly (JST, Molex, Deutsch)</li>
                     </ul>
                 </div>
-                
-                <!-- Column 3: Testing &amp; Diagnostics -->
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-vial"></i> TESTING &amp; DIAGNOSTICS</h4>
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-vial"></i> Testing &amp; Diagnostics</h4>
                     <ul class="space-y-4 text-sm">
-                        <li class="flex justify-between"><span>Oscilloscopes, Multimeters, Signal Generators</span></li>
-                        <li class="flex justify-between"><span>Electrical System Diagnostics &amp; Signal Integrity</span></li>
-                        <li class="flex justify-between"><span>Battery/Cell Characterization</span></li>
-                        <li class="flex justify-between"><span>Hardware-in-the-loop (HIL) Pre-flight Testing</span></li>
-                        <li class="flex justify-between"><span>Thermal Management Testing</span></li>
+                        <li>Oscilloscopes, Multimeters, Signal Generators</li>
+                        <li>DC Power Supplies</li>
+                        <li>Battery/Cell Characterization</li>
+                        <li>Thermal Management Testing</li>
                     </ul>
                 </div>
-                
-                <!-- Column 4: Project Expertise &amp; Documentation -->
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-file-lines"></i> PROJECT EXPERTISE &amp; DOCUMENTATION</h4>
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-file-lines"></i> Documentation</h4>
                     <ul class="space-y-4 text-sm">
-                        <li class="flex justify-between"><span>High-Altitude &amp; Rocket Payload Integration</span></li>
-                        <li class="flex justify-between"><span>Embedded Real-Time Systems &amp; Sensor Fusion</span></li>
-                        <li class="flex justify-between"><span>RF Signal Transmission Device Development</span></li>
-                        <li class="flex justify-between"><span>Bill of Materials (BOM) Management</span></li>
-                        <li class="flex justify-between"><span>Technical Spec Sheets &amp; Test Report Generation</span></li>
+                        <li>Technical Spec Sheets</li>
+                        <li>Bill of Materials (BOM) Management</li>
+                        <li>Test Report Generation</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="max-w-screen-2xl mx-auto px-8 py-24">
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24 bg-white/5">
+        <div class="max-w-2xl">
+            <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Publications</span>
+            <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mt-3 mb-8">Fully Differential Two-Stage CMOS Amplifier in 45 nm Technology</h2>
+            <p class="text-[#00d4ff] font-medium">Co-Author (2025)</p>
+            <ul class="mt-6 space-y-6 text-base md:text-lg leading-relaxed text-white/80">
+                <li class="flex gap-4">
+                    <span class="text-[#00d4ff] text-xl">•</span>
+                    Co-authored a technical paper presenting the design and analysis of a two-stage CMOS operational amplifier implemented in a 45 nm process.
+                </li>
+                <li class="flex gap-4">
+                    <span class="text-[#00d4ff] text-xl">•</span>
+                    Validated performance metrics including DC power consumption, output voltage swing (3.75 Vpp), and Common-Mode Rejection Ratio (93.43 dB) using Cadence Virtuoso/Spectre simulations.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <div class="flex justify-between items-end mb-12">
             <div>
-                <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">PROJECTS</span>
-                <h2 class="heading-font text-5xl tracking-tighter">From concept to flight-ready hardware</h2>
+                <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Engineering Projects</span>
+                <h2 class="heading-font text-4xl md:text-5xl tracking-tighter">From concept to flight-ready hardware</h2>
             </div>
-            <a onclick="navigateToSection('projects')" class="hidden md:flex items-center text-sm font-medium group">
-                View all 13 projects 
-                <span class="ml-2 text-2xl group-hover:translate-x-1">→</span>
-            </a>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectGrid">
-            <!-- Populated via JavaScript below -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="projectGrid">
+            <!-- Populated via JavaScript -->
         </div>
     </section>
 
-    <!-- EDUCATION / CLOSING -->
-    <section id="education" class="bg-[#112a4a] py-24">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="grid md:grid-cols-2 gap-16">
+    <!-- EDUCATION -->
+    <section id="education" class="bg-[#112a4a] py-16 md:py-24">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="heading-font text-5xl tracking-tighter mb-6">University of California, Irvine</h2>
-                    <div class="space-y-6">
+                    <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mb-8">University of California, Irvine</h2>
+                    <div class="space-y-8">
                         <div class="flex gap-6">
-                            <div class="text-right min-w-[120px]">
+                            <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">MS Electrical Engineering</div>
                                 <div class="text-sm text-white/60">Expected June 2026</div>
                             </div>
-                            <div class="flex-1">
-                                <p class="text-white/70">Advanced studies in RF systems, embedded control, and avionics integration.</p>
-                            </div>
+                            <div class="flex-1 text-white/70">Advanced studies in RF systems, embedded control, and avionics integration.</div>
                         </div>
                         <div class="flex gap-6">
-                            <div class="text-right min-w-[120px]">
+                            <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">BS Aerospace Engineering</div>
-                                <div class="text-sm text-white/60">June 2024</div>
+                                <div class="text-sm text-white/60">June 2024 • GPA 3.4</div>
                             </div>
-                            <div class="flex-1">
-                                <p class="text-white/70">Senior Capstone: Liquid-bipropellant rocket avionics &amp; ruggedization.</p>
-                            </div>
+                            <div class="flex-1 text-white/70">Senior Capstone: Liquid-bipropellant rocket avionics &amp; ruggedization.</div>
                         </div>
                         <div class="flex gap-6">
-                            <div class="text-right min-w-[120px]">
+                            <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">BS Electrical Engineering</div>
-                                <div class="text-sm text-white/60">June 2024</div>
+                                <div class="text-sm text-white/60">June 2024 • GPA 3.4</div>
                             </div>
-                            <div class="flex-1">
-                                <p class="text-white/70">Double major with focus on analog circuits, DSP, and high-altitude payloads.</p>
-                            </div>
+                            <div class="flex-1 text-white/70">Double major with focus on analog circuits, DSP, and high-altitude payloads.</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="flex items-center justify-center">
-                    <div class="text-center max-w-xs">
-                        <div class="text-7xl font-black text-white/10 mb-4">UCI</div>
+                <div class="flex items-center justify-center text-center">
+                    <div>
+                        <div class="text-8xl font-black text-white/10 mb-2">UCI</div>
                         <p class="text-white/60 text-lg">Samueli School of Engineering</p>
                         <div class="mt-8 text-xs uppercase tracking-widest text-[#00d4ff]">Proud Anteater • Built to fly</div>
                     </div>
@@ -377,26 +375,24 @@
 
     <!-- FOOTER -->
     <footer class="bg-[#0a1428] py-12 border-t border-white/10">
-        <div class="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-y-6">
-            <div class="flex items-center gap-x-8 text-white/60 text-sm">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-y-6 text-sm">
+            <div class="flex flex-col md:flex-row items-center gap-x-8 text-white/60">
                 <p>© 2026 Michael Zyburts • All hardware built by hand</p>
-                <p class="hidden md:block">•</p>
                 <a href="#" class="hover:text-[#00d4ff]">Download full resume (PDF)</a>
-                <!-- Replace these with your actual links once provided -->
-                <a href="#" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="#" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="http://www.linkedin.com/in/michael-zyburt-" target="_blank" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/awesomecoolguy/" target="_blank" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
             
-            <div onclick="copyEmail()" class="cursor-pointer flex items-center text-[#00d4ff] hover:text-white text-sm font-medium">
+            <div onclick="copyContact()" class="cursor-pointer flex items-center text-[#00d4ff] hover:text-white text-sm font-medium">
                 <i class="fa-solid fa-envelope mr-2"></i>
-                <span id="footerEmail">michael.zyburts@uci.edu</span> (click to copy)
+                <span id="footerEmail">michaelzyburt@gmail.com</span> (click to copy)
             </div>
             
-            <div class="text-white/40 text-xs">Made from your Google Slides portfolio • Fully dynamic &amp; modern</div>
+            <div class="text-white/40 text-xs">Made from your Google Slides + latest resume • Fully mobile-optimized</div>
         </div>
     </footer>
 
-    <!-- PROJECT MODALS (one container, JS populates content) -->
+    <!-- PROJECT MODALS -->
     <div id="projectModal" onclick="if(event.target === this) closeModal()" 
          class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
         <div onclick="event.stopImmediatePropagation()" 
@@ -407,207 +403,29 @@
             </div>
             
             <div class="p-8" id="modalContent">
-                <!-- Dynamically injected by JS -->
+                <!-- JS injected -->
             </div>
         </div>
     </div>
 
     <script>
-        /**
-         * Tailwind script initialization
-         */
         function initializeTailwind() {
-            tailwind.config = {
-                content: [],
-                theme: {
-                    extend: {}
-                }
-            }
+            tailwind.config = { content: [], theme: { extend: {} } }
         }
         
-        /**
-         * All 13 projects with full descriptions + "What I Learned & Did" + image placeholders
-         * Photos stay paired with their summaries (modal shows the exact slide image description)
-         */
         const projectsData = [
-            {
-                id: 1,
-                title: "Solar Airplane Avionics & Propulsion Analysis",
-                category: "Aerospace",
-                image: "https://picsum.photos/id/1015/1200/800", // Replace with your actual slide screenshot export
-                description: "As a key member of the Propulsion sub-team for the 2024-2025 Solar Airplane project, I was responsible for the end-to-end design and integration of the aircraft’s avionics suite. Primary focus was on optimizing the energy balance between solar generation and propulsion consumption.",
-                bullets: [
-                    "Data-Driven Optimization: Quantified trade-offs in aerospace design — correlation between drag from solar panels and resulting electrical power gain.",
-                    "Advanced Diagnostics: Hardware-in-the-loop analysis during manufacturing to match theoretical calculations with real-world performance.",
-                    "Statistical Modeling: Transformed raw flight data into actionable insights via correlation matrices and efficiency plots.",
-                    "Systems Integration: Ensured tight coupling between propulsion subsystems and airframe aerodynamics."
-                ],
-                imageCaption: "Solar panel efficiency vs. aerodynamic drag graphs + component photos"
-            },
-            {
-                id: 2,
-                title: "Rocket Electrical Systems & Avionics (Senior Capstone)",
-                category: "Rocket",
-                image: "https://picsum.photos/id/102/1200/800",
-                description: "Key engineer on a multidisciplinary team designing a liquid-bipropellant launch vehicle targeting a collegiate altitude record. Focused on physical ruggedization of electronics and data acquisition systems to survive high-vibration ascent and extreme G-forces.",
-                bullets: [
-                    "Electro-Mechanical Packaging: SolidWorks modeling of AV bulkhead, 3D-printed circuit mounts, and retention brackets.",
-                    "Data Acquisition Hardware: Architected localized SD Memory Card interface for redundant, non-volatile flight data storage.",
-                    "Interconnect Design: Engineered wire harness routing and secure locking mechanisms to prevent disconnection during stage separation."
-                ],
-                imageCaption: "Rocket CAD render + avionics packaging photos"
-            },
-            {
-                id: 3,
-                title: "High-Altitude Environmental Research",
-                category: "Payload",
-                image: "https://picsum.photos/id/201/1200/800",
-                description: "Engineered a comprehensive sensor payload for near-space (31,000 m). Executed full development lifecycle as sole engineer — mission requirements, thermal modeling, physical construction, and sensor integration. Flight-ready prototype awaiting launch.",
-                bullets: [
-                    "End-to-End Systems Integration: Power management, data logging, and A/V recording subsystems.",
-                    "Environmental Hardening: Passive thermal management for -60°C stratospheric conditions.",
-                    "Mission Planning & Simulation: Predictive modeling of flight trajectories and landing zones.",
-                    "Instrumentation & Calibration: Multi-sensor suite (CO₂, humidity, pressure) with HIL testing."
-                ],
-                imageCaption: "High-altitude balloon launch + payload photos"
-            },
-            {
-                id: 4,
-                title: "Earth-Moon-Earth (EME) RF Communication System",
-                category: "RF",
-                image: "https://picsum.photos/id/301/1200/800",
-                description: "Hardware Team Lead for a high-frequency radio system capable of transmitting to the lunar surface and capturing reflections (Moon Bounce). Overcame ~250 dB path loss over a 477,000-mile round trip.",
-                bullets: [
-                    "RF Hardware Leadership: Component selection and integration of high-gain antennas, LNAs, and power amplifiers.",
-                    "Signal Integrity Verification: Spectrum analyzers and oscilloscopes for noise figures and insertion loss.",
-                    "Link Budget Analysis: Theoretical SNR calculations and compensation for Doppler shift.",
-                    "System Integration: Impedance matching between DSP and analog RF front end."
-                ],
-                imageCaption: "EME transmission chain diagram + team photo"
-            },
-            {
-                id: 5,
-                title: "Analog Circuit Design & Amplifier Development",
-                category: "Electronics",
-                image: "https://picsum.photos/id/401/1200/800",
-                description: "Full-cycle design and fabrication of a custom multi-stage amplifier using discrete transistors. First-principles approach with precise DC operating points and small-signal parameters. Published paper available.",
-                bullets: [
-                    "Circuit Topology Design: Common Emitter/Source and Differential Pair stages.",
-                    "Component Level Calculation: Bias resistor networks and coupling capacitors.",
-                    "Stability Analysis: Mitigated parasitic oscillations and ringing.",
-                    "Performance Verification: Voltage gain, slew rate, and THD measurements."
-                ],
-                imageCaption: "Green PCB prototype on lab bench with oscilloscope"
-            },
-            {
-                id: 6,
-                title: "Electromagnetic Levitation Device",
-                category: "Personal",
-                image: "https://picsum.photos/id/501/1200/800",
-                description: "Built a custom 'Maglev' platform from scratch to explore electromagnetism and sensor feedback. Sourced components, fabricated frame, and hand-wired control circuitry to balance a levitating magnet against gravity.",
-                bullets: [
-                    "Circuit Fabrication: Breadboard to permanent soldered solution.",
-                    "Electromechanical Design: Custom-wound electromagnets for required flux density.",
-                    "Real-Time Signal Processing: Instantaneous duty-cycle adjustment based on sensor voltage.",
-                    "Thermal Management: Heat dissipation for solenoid and driver transistors."
-                ],
-                imageCaption: "Maglev prototype with circuit schematic"
-            },
-            {
-                id: 7,
-                title: "Sensor-Integrated Autonomous Rover",
-                category: "Rover",
-                image: "https://picsum.photos/id/601/1200/800",
-                description: "Collaborated in a 6-person team to prototype an autonomous robotic vehicle for search-and-retrieval tasks. Bridged hardware inputs and software outputs for low-latency physical response to sensor data.",
-                bullets: [
-                    "Hardware Implementation: Wiring harness and circuit topology for actuators and sensors.",
-                    "Real-Time Data Processing: Continuous polling of sensor arrays into steering commands.",
-                    "Actuator Control: PWM drivers for motor speed and torque.",
-                    "Testing & Validation: 100% success rate in final navigation trials."
-                ],
-                imageCaption: "Rover hardware and wiring photos"
-            },
-            {
-                id: 8,
-                title: "Cargo Plane",
-                category: "Aircraft",
-                image: "https://picsum.photos/id/701/1200/800",
-                description: "UCI engineering class project: Remote-controlled cargo plane designed for a competition. I was on the avionics and design team. Mostly completed — needed final manufacturing touches.",
-                bullets: [
-                    "Designed airfoil and determined initial dimensions of the plane.",
-                    "Selected electrical components and designed the tail flap mechanism."
-                ],
-                imageCaption: "RC cargo plane 3D render"
-            },
-            {
-                id: 9,
-                title: "Pneumatic Autonomous Rover",
-                category: "Rover",
-                image: "https://picsum.photos/id/801/1200/800",
-                description: "UCI MAE 106 class project (3-person team). Autonomous rover using a pneumatic cylinder as driving force. Achieved full credit with 40 points in competition.",
-                bullets: [
-                    "Coding and electrical system design.",
-                    "Implemented magnetic sensor, reed switch, and actuators with hybrid loop control on Arduino."
-                ],
-                imageCaption: "Pneumatic rover on table"
-            },
-            {
-                id: 10,
-                title: "RC Rover",
-                category: "Rover",
-                image: "https://picsum.photos/id/901/1200/800",
-                description: "UCI ENGR 7A class project (4-person team). Basic remote-controlled 4-wheel rover. Team placed 2nd in the entire class.",
-                bullets: [
-                    "Helped design and build electrical system and hardware.",
-                    "CAD modeling, gear ratio/torque calculations, and electrical component selection."
-                ],
-                imageCaption: "RC rover on wooden surface"
-            },
-            {
-                id: 11,
-                title: "RC Plane",
-                category: "Aircraft",
-                image: "https://picsum.photos/id/1005/1200/800",
-                description: "Delta/flying wing remote-controlled plane built from hobby electronics, poster, and foam board.",
-                bullets: [
-                    "Designed and built the entire plane myself.",
-                    "Learned center of mass/gravity, lift generation, and fundamental aerodynamic forces."
-                ],
-                imageCaption: "RC plane on grass and in flight"
-            },
-            {
-                id: 12,
-                title: "Power Saving Machine Learning Plug",
-                category: "Embedded",
-                image: "https://picsum.photos/id/110/1200/800",
-                description: "Final project for PLTW high school engineering class. Smart plug using machine learning to remember on/off patterns and automatically save power.",
-                bullets: [
-                    "Designed and built the entire electrical portion.",
-                    "Learned basic machine learning code, electrical components, and AC power fundamentals."
-                ],
-                imageCaption: "Smart plug hardware"
-            },
-            {
-                id: 13,
-                title: "Home Alarm System",
-                category: "Embedded",
-                image: "https://picsum.photos/id/120/1200/800",
-                description: "Hooked up parents’ old wired home alarm system to a new wireless system through an Arduino. Still in daily use after ~1 year.",
-                bullets: [
-                    "Designed and coded the entire circuit and Arduino script myself.",
-                    "Learned wiring, voltage dividers, and embedded programming."
-                ],
-                imageCaption: "Arduino alarm system wiring photos"
-            }
+            { id: 1, title: "Analog Circuit Design & Amplifier Development", category: "Electronics", image: "https://picsum.photos/id/401/1200/800", description: "Designed a custom circuit amplifier from the ground up, calculating component values to meet strict engineering requirements.", bullets: ["Performed rigorous testing to validate performance metrics, including voltage gain, output current, and voltage swing.", "Identified and resolved circuit instabilities during the breadboarding and testing phases to achieve specified signal integrity."], imageCaption: "Green PCB prototype on lab bench with oscilloscope" },
+            { id: 2, title: "Rocket Electrical Systems & Avionics (Senior Capstone)", category: "Rocket", image: "https://picsum.photos/id/102/1200/800", description: "Designed and manually assembled circuit mounts and connectors for an AV bulkhead, ensuring reliability for a rocket reaching 20,000 feet.", bullets: ["Designed and populated custom sensor board components, including SD memory card modules for flight data logging.", "Performed rigorous electrical system diagnostics and CAD modeling to ensure structural and electrical integrity under extreme vibration and pressure.", "Conducted battery cell characterization and testing to optimize power-to-weight ratios for long-endurance flight."], imageCaption: "Rocket CAD render + avionics packaging photos" },
+            { id: 3, title: "Moon Bounce (EME) Signal Transmission", category: "RF", image: "https://picsum.photos/id/301/1200/800", description: "Led a hardware team to develop an RF signal transmission device capable of bouncing radio waves off the moon.", bullets: ["Managed rigorous testing phases to ensure signal integrity across vast distances."], imageCaption: "EME transmission chain diagram + team photo" },
+            { id: 4, title: "Solar Airplane Propulsion & Avionics Analysis", category: "Aerospace", image: "https://picsum.photos/id/1015/1200/800", description: "Led the propulsion sub-team in designing and integrating circuit diagrams, specifically focusing on the optimization of motor/propeller selection relative to solar panel power generation.", bullets: ["Conducted advanced data analysis to model the efficiency of solar panels, calculating the power-to-drag ratio across varying velocities to determine optimal flight parameters.", "Performed rigorous avionics testing and analysis during manufacturing and competition phases, generating detailed technical reports on system integrity and energy calculations.", "Quantified the impact of solar panel integration on airframe aerodynamics, analyzing drag pressure increases vs. electrical power gains to maximize flight endurance."], imageCaption: "Solar panel efficiency vs. aerodynamic drag graphs + component photos" },
+            { id: 5, title: "High-Altitude Weather Balloon Research", category: "Payload", image: "https://picsum.photos/id/201/1200/800", description: "Integrated and calibrated a multi-sensor payload to measure CO2 levels, temperature, pressure, humidity, and wind speed across multiple altitudes up to 31,000 meters.", bullets: ["Conducted pre-flight hardware-in-the-loop testing to ensure electronics survived extreme atmospheric conditions (pressure/temperature).", "Managed the installation and synchronization of video and audio recording hardware for high-altitude upper atmosphere documentation."], imageCaption: "High-altitude balloon launch + payload photos" },
+            { id: 6, title: "Autonomous Rover Design Project", category: "Rover", image: "https://picsum.photos/id/601/1200/800", description: "Developed an Arduino-based PID controller and feedback loop to modulate motor control based on real-time sensor data.", bullets: ["Successfully embedded and soldered IR sensors, ultrasonic range finders, and color sensors into a custom circuit."], imageCaption: "Rover hardware and wiring photos" },
+            { id: 7, title: "Electromagnetic Levitation Device", category: "Personal", image: "https://picsum.photos/id/501/1200/800", description: "Designed and built an analog control circuit to achieve stable magnetic levitation.", bullets: ["Integrated sensors to read the position of levitating magnets, translating output into real-time modulation of the electromagnet power supply."], imageCaption: "Maglev prototype with circuit schematic" }
         ]
         
-        /**
-         * Render the project grid
-         */
         function renderProjects() {
             const grid = document.getElementById('projectGrid')
             grid.innerHTML = ''
-            
             projectsData.forEach(project => {
                 const cardHTML = `
                 <div onclick="openProjectModal(${project.id})" class="project-card cursor-pointer bg-[#112a4a] rounded-3xl overflow-hidden group">
@@ -628,45 +446,31 @@
             })
         }
         
-        /**
-         * Open modal with full project details (photos stay with summaries)
-         */
         function openProjectModal(id) {
             const project = projectsData.find(p => p.id === id)
             if (!project) return
-            
             const modal = document.getElementById('projectModal')
             const content = document.getElementById('modalContent')
             const titleEl = document.getElementById('modalTitle')
-            
             titleEl.textContent = project.title
-            
             let bulletsHTML = project.bullets.map(b => `<li class="flex items-start gap-x-3"><span class="text-[#00d4ff] mt-1">•</span><span>${b}</span></li>`).join('')
-            
             content.innerHTML = `
                 <div class="grid md:grid-cols-5 gap-8">
-                    <!-- Left: Image + caption (photo stays with summary) -->
                     <div class="md:col-span-2">
                         <img src="${project.image}" alt="${project.title}" class="rounded-3xl shadow-inner w-full">
                         <p class="text-xs text-white/50 mt-4 italic">${project.imageCaption}</p>
                     </div>
-                    
-                    <!-- Right: Full text -->
                     <div class="md:col-span-3 space-y-8">
                         <p class="text-lg">${project.description}</p>
-                        
                         <div>
-                            <h5 class="font-medium text-[#00d4ff] mb-4 flex items-center"><i class="fa-solid fa-lightbulb mr-2"></i> WHAT I LEARNED &amp; DID</h5>
+                            <h5 class="font-medium text-[#00d4ff] mb-4 flex items-center"><i class="fa-solid fa-lightbulb mr-2"></i> WHAT I DID</h5>
                             <ul class="space-y-4 text-sm">${bulletsHTML}</ul>
                         </div>
-                        
                         <div class="pt-6 border-t border-white/10 flex justify-end">
-                            <button onclick="closeModal()" 
-                                    class="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">CLOSE PROJECT</button>
+                            <button onclick="closeModal()" class="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">CLOSE PROJECT</button>
                         </div>
                     </div>
                 </div>`
-            
             modal.classList.remove('hidden')
             modal.classList.add('flex')
             document.body.style.overflow = 'hidden'
@@ -679,40 +483,26 @@
             document.body.style.overflow = 'visible'
         }
         
-        /**
-         * Smooth scroll navigation
-         */
         function navigateToSection(section) {
             const el = document.getElementById(section)
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' })
-            }
+            if (el) el.scrollIntoView({ behavior: 'smooth' })
         }
         
-        /**
-         * Mobile menu toggle
-         */
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu')
             menu.classList.toggle('hidden')
         }
         
-        /**
-         * Fake email copy (replace with your real email)
-         */
-        function copyEmail() {
-            const email = "michaelzyburt@gmail.com" // ← Replace with your actual email
+        function copyContact() {
+            const email = "michaelzyburt@gmail.com"
             navigator.clipboard.writeText(email).then(() => {
                 const footer = document.getElementById('footerEmail')
                 const original = footer.textContent
-                footer.textContent = '✅ COPIED!'
-                setTimeout(() => { footer.textContent = original }, 2000)
+                footer.innerHTML = `✅ <span class="font-medium">COPIED!</span>`
+                setTimeout(() => { footer.innerHTML = `${email} <span class="text-xs">(click to copy)</span>` }, 2200)
             })
         }
         
-        /**
-         * Scroll progress bar
-         */
         function initScrollProgress() {
             const progressBar = document.getElementById('scrollProgress')
             window.addEventListener('scroll', () => {
@@ -723,18 +513,13 @@
             })
         }
         
-        /**
-         * MAIN INIT
-         */
         function launchWebsite() {
             initializeTailwind()
             renderProjects()
             initScrollProgress()
-            
-            
+            console.log('%c✅ Michael Zyburts Portfolio Website LIVE • Email updated to michaelzyburt@gmail.com • Fully mobile-optimized', 'background:#00d4ff;color:#0a1428;font-weight:bold;padding:2px 8px;border-radius:4px')
         }
         
-        // Launch the site
         window.onload = launchWebsite
     </script>
 </body>
