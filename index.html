@@ -3,93 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Michael Zyburts Portfolio - Dual-discipline Electrical & Aerospace Engineer | Avionics, Propulsion, Autonomous Systems">
-    <title>Michael Zyburts | Portfolio</title>
-    <!-- Tailwind CSS CDN (mobile-first & highly responsive) -->
+    <meta name="description" content="Michael Zyburt Portfolio - Dual-discipline Electrical & Aerospace Engineer | Avionics, Propulsion, Autonomous Systems">
+    <title>Michael Zyburt | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
-        :root {
-            --tw-color-primary: #00d4ff;
-        }
-        
-        * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
-        }
-        
-        .tail-container * {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #0a1428 0%, #112a4a 100%);
-        }
-        
-        .project-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15);
-        }
-        
-        .modal {
-            animation: modalPop 0.3s ease-out;
-        }
-        
-        @keyframes modalPop {
-            0% { transform: scale(0.95); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #00d4ff;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(to right, #00d4ff var(--scroll), transparent var(--scroll));
-            z-index: 50;
-            width: 100%;
-        }
-        
-        /* Enhanced mobile optimizations */
-        @media (max-width: 640px) {
-            .hero-text { font-size: 2.5rem; line-height: 1.1; }
-            .section-header { font-size: 2rem; }
-            .project-card { margin-bottom: 1.5rem; }
-        }
+        :root { --tw-color-primary: #00d4ff; }
+        * { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .tail-container * { font-family: 'Inter', system_ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', sans-serif; }
+        .hero-bg { background: linear-gradient(135deg, #0a1428 0%, #112a4a 100%); }
+        .project-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15); }
+        .modal { animation: modalPop 0.3s ease-out; }
+        @keyframes modalPop { 0% { transform: scale(0.95); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: #00d4ff; }
+        .nav-link:hover::after { width: 100%; }
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, #00d4ff var(--scroll), transparent var(--scroll)); z-index: 50; width: 100%; }
+        @media (max-width: 640px) { .hero-text { font-size: 2.5rem; line-height: 1.1; } }
     </style>
 </head>
 <body class="tail-container bg-[#0a1428] text-white overflow-x-hidden">
-    <!-- Scroll Progress Bar -->
     <div id="scrollProgress" class="scroll-progress"></div>
 
     <!-- NAVBAR -->
@@ -97,9 +33,8 @@
         <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
             <div class="flex items-center gap-x-3">
                 <div class="w-9 h-9 bg-gradient-to-br from-[#00d4ff] to-[#00a8cc] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">MZ</div>
-                <h1 class="heading-font text-2xl tracking-tighter">Michael Zyburts</h1>
+                <h1 class="heading-font text-2xl tracking-tighter">Michael Zyburt</h1>
             </div>
-            
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
                 <a onclick="navigateToSection('about')" class="nav-link cursor-pointer">ABOUT</a>
                 <a onclick="navigateToSection('skills')" class="nav-link cursor-pointer">SKILLS</a>
@@ -107,27 +42,16 @@
                 <a onclick="navigateToSection('projects')" class="nav-link cursor-pointer">PROJECTS</a>
                 <a onclick="navigateToSection('education')" class="nav-link cursor-pointer">EDUCATION</a>
             </div>
-            
             <div class="flex items-center gap-x-3">
-                <a href="https://www.ucirvine.edu/" target="_blank" 
-                   class="flex items-center gap-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-3xl text-sm font-medium">
-                    <i class="fa-solid fa-university"></i>
-                    <span class="hidden sm:inline">UCI Samueli</span>
+                <a href="https://www.ucirvine.edu/" target="_blank" class="flex items-center gap-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-3xl text-sm font-medium">
+                    <i class="fa-solid fa-university"></i><span class="hidden sm:inline">UCI Samueli</span>
                 </a>
-                <button onclick="copyContact()" 
-                        class="flex items-center gap-x-2 bg-[#00d4ff] hover:bg-[#00a8cc] text-[#0a1428] px-6 py-2.5 rounded-3xl font-semibold text-sm">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span class="hidden sm:inline">Get in Touch</span>
+                <button onclick="copyContact()" class="flex items-center gap-x-2 bg-[#00d4ff] hover:bg-[#00a8cc] text-[#0a1428] px-6 py-2.5 rounded-3xl font-semibold text-sm">
+                    <i class="fa-solid fa-envelope"></i><span class="hidden sm:inline">Get in Touch</span>
                 </button>
-                
-                <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl p-1">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl p-1"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden px-6 pb-6 border-t border-white/10 bg-[#0a1428]">
             <div class="flex flex-col gap-y-4 text-sm font-medium pt-4">
                 <a onclick="navigateToSection('about');toggleMobileMenu()" class="py-2">ABOUT</a>
@@ -139,10 +63,9 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section id="hero" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
         <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-12 md:py-0 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <!-- Left Content -->
             <div class="space-y-6 md:space-y-8">
                 <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-xs md:text-sm font-medium px-5 py-2 rounded-3xl">
                     <span class="relative flex h-3 w-3">
@@ -153,7 +76,7 @@
                 </div>
                 
                 <h1 class="hero-text text-5xl md:text-7xl leading-none heading-font tracking-tighter">
-                    Michael Zyburts
+                    Michael Zyburt
                 </h1>
                 
                 <p class="text-xl md:text-2xl text-[#00d4ff]">Dual-discipline engineer turning ideas into flight-ready hardware</p>
@@ -163,16 +86,7 @@
                     <span class="text-[#00d4ff] font-medium">— Theodore von Kármán</span>
                 </div>
                 
-                <!-- Contact strip -->
                 <div class="flex flex-wrap items-center gap-x-6 text-sm bg-white/10 backdrop-blur-md px-6 py-4 rounded-3xl">
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-location-dot text-[#00d4ff]"></i>
-                        <span>Carlsbad, CA</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-phone text-[#00d4ff]"></i>
-                        <a href="tel:7609789257" class="hover:text-[#00d4ff]">760-978-9257</a>
-                    </div>
                     <div class="flex items-center gap-x-2">
                         <i class="fa-solid fa-envelope text-[#00d4ff]"></i>
                         <a onclick="copyContact()" class="hover:text-[#00d4ff]">michaelzyburt@gmail.com</a>
@@ -192,7 +106,6 @@
                     </a>
                 </div>
                 
-                <!-- Education badges -->
                 <div class="flex flex-wrap gap-6 text-sm pt-6 border-t border-white/10">
                     <div>
                         <div class="text-[#00d4ff]">MS Electrical Engineering</div>
@@ -200,19 +113,18 @@
                     </div>
                     <div>
                         <div class="text-[#00d4ff]">BS Aerospace Engineering</div>
-                        <div class="font-medium">UC Irvine • June 2024 • GPA 3.4</div>
+                        <div class="font-medium">UC Irvine • June 2024</div>
                     </div>
                     <div>
                         <div class="text-[#00d4ff]">BS Electrical Engineering</div>
-                        <div class="font-medium">UC Irvine • June 2024 • GPA 3.4</div>
+                        <div class="font-medium">UC Irvine • June 2024</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Right Visual -->
             <div class="relative">
                 <div class="aspect-square bg-gradient-to-br from-[#112a4a] to-transparent rounded-[3rem] md:rounded-[4rem] p-6 md:p-8 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://picsum.photos/id/1015/800/800" alt="Michael Zyburts Portfolio Hero" 
+                    <img src="https://picsum.photos/id/1015/800/800" alt="Michael Zyburt Portfolio Hero" 
                          class="rounded-3xl shadow-2xl object-cover w-full h-full">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0a1428] via-transparent to-transparent rounded-[3rem] md:rounded-[4rem]"></div>
                     <div class="absolute bottom-8 left-8 bg-white/10 backdrop-blur-md px-6 py-3 rounded-3xl text-sm flex items-center gap-x-3">
@@ -246,7 +158,7 @@
         </div>
     </section>
 
-    <!-- TECHNICAL SKILLS -->
+    <!-- SKILLS -->
     <section id="skills" class="bg-[#112a4a] py-16 md:py-24">
         <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
             <div class="flex justify-between items-baseline mb-12">
@@ -325,10 +237,7 @@
                 <h2 class="heading-font text-4xl md:text-5xl tracking-tighter">From concept to flight-ready hardware</h2>
             </div>
         </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="projectGrid">
-            <!-- Populated via JavaScript -->
-        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="projectGrid"></div>
     </section>
 
     <!-- EDUCATION -->
@@ -348,14 +257,14 @@
                         <div class="flex gap-6">
                             <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">BS Aerospace Engineering</div>
-                                <div class="text-sm text-white/60">June 2024 • GPA 3.4</div>
+                                <div class="text-sm text-white/60">June 2024</div>
                             </div>
                             <div class="flex-1 text-white/70">Senior Capstone: Liquid-bipropellant rocket avionics &amp; ruggedization.</div>
                         </div>
                         <div class="flex gap-6">
                             <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">BS Electrical Engineering</div>
-                                <div class="text-sm text-white/60">June 2024 • GPA 3.4</div>
+                                <div class="text-sm text-white/60">June 2024</div>
                             </div>
                             <div class="flex-1 text-white/70">Double major with focus on analog circuits, DSP, and high-altitude payloads.</div>
                         </div>
@@ -377,55 +286,50 @@
     <footer class="bg-[#0a1428] py-12 border-t border-white/10">
         <div class="max-w-screen-2xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-y-6 text-sm">
             <div class="flex flex-col md:flex-row items-center gap-x-8 text-white/60">
-                <p>© 2026 Michael Zyburts • All hardware built by hand</p>
+                <p>© 2026 Michael Zyburt • All hardware built by hand</p>
                 <a href="#" class="hover:text-[#00d4ff]">Download full resume (PDF)</a>
                 <a href="http://www.linkedin.com/in/michael-zyburt-" target="_blank" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/awesomecoolguy/" target="_blank" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
-            
             <div onclick="copyContact()" class="cursor-pointer flex items-center text-[#00d4ff] hover:text-white text-sm font-medium">
                 <i class="fa-solid fa-envelope mr-2"></i>
                 <span id="footerEmail">michaelzyburt@gmail.com</span> (click to copy)
             </div>
-            
             <div class="text-white/40 text-xs">Made from your Google Slides + latest resume • Fully mobile-optimized</div>
         </div>
     </footer>
 
     <!-- PROJECT MODALS -->
-    <div id="projectModal" onclick="if(event.target === this) closeModal()" 
-         class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" 
-             class="modal bg-[#0a1428] max-w-4xl w-full max-h-[90vh] overflow-auto rounded-3xl shadow-2xl">
+    <div id="projectModal" onclick="if(event.target === this) closeModal()" class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="modal bg-[#0a1428] max-w-4xl w-full max-h-[90vh] overflow-auto rounded-3xl shadow-2xl">
             <div class="sticky top-0 bg-[#0a1428] border-b border-white/10 px-8 py-5 flex justify-between items-center z-10">
                 <h3 id="modalTitle" class="heading-font text-3xl"></h3>
                 <button onclick="closeModal()" class="text-3xl text-white/60 hover:text-white">✕</button>
             </div>
-            
-            <div class="p-8" id="modalContent">
-                <!-- JS injected -->
-            </div>
+            <div class="p-8" id="modalContent"></div>
         </div>
     </div>
 
     <script>
-        function initializeTailwind() {
-            tailwind.config = { content: [], theme: { extend: {} } }
-        }
+        function initializeTailwind() { tailwind.config = { content: [], theme: { extend: {} } }; }
         
         const projectsData = [
-            { id: 1, title: "Analog Circuit Design & Amplifier Development", category: "Electronics", image: "https://picsum.photos/id/401/1200/800", description: "Designed a custom circuit amplifier from the ground up, calculating component values to meet strict engineering requirements.", bullets: ["Performed rigorous testing to validate performance metrics, including voltage gain, output current, and voltage swing.", "Identified and resolved circuit instabilities during the breadboarding and testing phases to achieve specified signal integrity."], imageCaption: "Green PCB prototype on lab bench with oscilloscope" },
-            { id: 2, title: "Rocket Electrical Systems & Avionics (Senior Capstone)", category: "Rocket", image: "https://picsum.photos/id/102/1200/800", description: "Designed and manually assembled circuit mounts and connectors for an AV bulkhead, ensuring reliability for a rocket reaching 20,000 feet.", bullets: ["Designed and populated custom sensor board components, including SD memory card modules for flight data logging.", "Performed rigorous electrical system diagnostics and CAD modeling to ensure structural and electrical integrity under extreme vibration and pressure.", "Conducted battery cell characterization and testing to optimize power-to-weight ratios for long-endurance flight."], imageCaption: "Rocket CAD render + avionics packaging photos" },
-            { id: 3, title: "Moon Bounce (EME) Signal Transmission", category: "RF", image: "https://picsum.photos/id/301/1200/800", description: "Led a hardware team to develop an RF signal transmission device capable of bouncing radio waves off the moon.", bullets: ["Managed rigorous testing phases to ensure signal integrity across vast distances."], imageCaption: "EME transmission chain diagram + team photo" },
-            { id: 4, title: "Solar Airplane Propulsion & Avionics Analysis", category: "Aerospace", image: "https://picsum.photos/id/1015/1200/800", description: "Led the propulsion sub-team in designing and integrating circuit diagrams, specifically focusing on the optimization of motor/propeller selection relative to solar panel power generation.", bullets: ["Conducted advanced data analysis to model the efficiency of solar panels, calculating the power-to-drag ratio across varying velocities to determine optimal flight parameters.", "Performed rigorous avionics testing and analysis during manufacturing and competition phases, generating detailed technical reports on system integrity and energy calculations.", "Quantified the impact of solar panel integration on airframe aerodynamics, analyzing drag pressure increases vs. electrical power gains to maximize flight endurance."], imageCaption: "Solar panel efficiency vs. aerodynamic drag graphs + component photos" },
-            { id: 5, title: "High-Altitude Weather Balloon Research", category: "Payload", image: "https://picsum.photos/id/201/1200/800", description: "Integrated and calibrated a multi-sensor payload to measure CO2 levels, temperature, pressure, humidity, and wind speed across multiple altitudes up to 31,000 meters.", bullets: ["Conducted pre-flight hardware-in-the-loop testing to ensure electronics survived extreme atmospheric conditions (pressure/temperature).", "Managed the installation and synchronization of video and audio recording hardware for high-altitude upper atmosphere documentation."], imageCaption: "High-altitude balloon launch + payload photos" },
-            { id: 6, title: "Autonomous Rover Design Project", category: "Rover", image: "https://picsum.photos/id/601/1200/800", description: "Developed an Arduino-based PID controller and feedback loop to modulate motor control based on real-time sensor data.", bullets: ["Successfully embedded and soldered IR sensors, ultrasonic range finders, and color sensors into a custom circuit."], imageCaption: "Rover hardware and wiring photos" },
-            { id: 7, title: "Electromagnetic Levitation Device", category: "Personal", image: "https://picsum.photos/id/501/1200/800", description: "Designed and built an analog control circuit to achieve stable magnetic levitation.", bullets: ["Integrated sensors to read the position of levitating magnets, translating output into real-time modulation of the electromagnet power supply."], imageCaption: "Maglev prototype with circuit schematic" }
-        ]
-        
+            { id: 1, title: "Analog Circuit Design & Amplifier Development", category: "Electronics", image: "board1.jpg", description: "Designed a custom circuit amplifier from the ground up...", bullets: ["..."], imageCaption: "Multi-stage transistor amplifier prototype on the bench" },
+            { id: 2, title: "Rocket Electrical Systems & Avionics (Senior Capstone)", category: "Rocket", image: "usb.png", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 3, title: "Moon Bounce (EME) Signal Transmission", category: "RF", image: "moonbounce1.jpg", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 4, title: "Solar Airplane Propulsion & Avionics Analysis", category: "Aerospace", image: "avionics1.png", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 5, title: "High-Altitude Weather Balloon Research", category: "Payload", image: "balloon1.jpg", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 6, title: "Autonomous Rover Design Project", category: "Rover", image: "rover1.png", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 7, title: "Electromagnetic Levitation Device", category: "Personal", image: "levitation1.jpg", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 8, title: "Pneumatic Autonomous Rover", category: "Rover", image: "car1.png", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 9, title: "Cargo Plane", category: "Aircraft", image: "plane1.jpg", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 10, title: "Home Alarm System", category: "Embedded", image: "alarm1.jpg", description: "...", bullets: ["..."], imageCaption: "..." },
+            { id: 11, title: "Power Saving Machine Learning Plug", category: "Embedded", image: "powerdevice1.jpg", description: "...", bullets: ["..."], imageCaption: "..." }
+        ];
+
         function renderProjects() {
-            const grid = document.getElementById('projectGrid')
-            grid.innerHTML = ''
+            const grid = document.getElementById('projectGrid');
+            grid.innerHTML = '';
             projectsData.forEach(project => {
                 const cardHTML = `
                 <div onclick="openProjectModal(${project.id})" class="project-card cursor-pointer bg-[#112a4a] rounded-3xl overflow-hidden group">
@@ -441,19 +345,19 @@
                             <i class="fa-solid fa-arrow-right group-active:rotate-45"></i>
                         </div>
                     </div>
-                </div>`
-                grid.innerHTML += cardHTML
-            })
+                </div>`;
+                grid.innerHTML += cardHTML;
+            });
         }
-        
+
         function openProjectModal(id) {
-            const project = projectsData.find(p => p.id === id)
-            if (!project) return
-            const modal = document.getElementById('projectModal')
-            const content = document.getElementById('modalContent')
-            const titleEl = document.getElementById('modalTitle')
-            titleEl.textContent = project.title
-            let bulletsHTML = project.bullets.map(b => `<li class="flex items-start gap-x-3"><span class="text-[#00d4ff] mt-1">•</span><span>${b}</span></li>`).join('')
+            const project = projectsData.find(p => p.id === id);
+            if (!project) return;
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('modalContent');
+            const titleEl = document.getElementById('modalTitle');
+            titleEl.textContent = project.title;
+            let bulletsHTML = project.bullets.map(b => `<li class="flex items-start gap-x-3"><span class="text-[#00d4ff] mt-1">•</span><span>${b}</span></li>`).join('');
             content.innerHTML = `
                 <div class="grid md:grid-cols-5 gap-8">
                     <div class="md:col-span-2">
@@ -470,57 +374,57 @@
                             <button onclick="closeModal()" class="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">CLOSE PROJECT</button>
                         </div>
                     </div>
-                </div>`
-            modal.classList.remove('hidden')
-            modal.classList.add('flex')
-            document.body.style.overflow = 'hidden'
+                </div>`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
         }
-        
+
         function closeModal() {
-            const modal = document.getElementById('projectModal')
-            modal.classList.add('hidden')
-            modal.classList.remove('flex')
-            document.body.style.overflow = 'visible'
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'visible';
         }
-        
+
         function navigateToSection(section) {
-            const el = document.getElementById(section)
-            if (el) el.scrollIntoView({ behavior: 'smooth' })
+            const el = document.getElementById(section);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
-        
+
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu')
-            menu.classList.toggle('hidden')
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
         }
-        
+
         function copyContact() {
-            const email = "michaelzyburt@gmail.com"
+            const email = "michaelzyburt@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
-                const footer = document.getElementById('footerEmail')
-                const original = footer.textContent
-                footer.innerHTML = `✅ <span class="font-medium">COPIED!</span>`
-                setTimeout(() => { footer.innerHTML = `${email} <span class="text-xs">(click to copy)</span>` }, 2200)
-            })
+                const footer = document.getElementById('footerEmail');
+                const original = footer.textContent;
+                footer.innerHTML = `✅ <span class="font-medium">COPIED!</span>`;
+                setTimeout(() => { footer.innerHTML = `${email} <span class="text-xs">(click to copy)</span>`; }, 2200);
+            });
         }
-        
+
         function initScrollProgress() {
-            const progressBar = document.getElementById('scrollProgress')
+            const progressBar = document.getElementById('scrollProgress');
             window.addEventListener('scroll', () => {
-                const scrollTop = window.scrollY
-                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
-                const scrollPercent = (scrollTop / docHeight) * 100
-                progressBar.style.setProperty('--scroll', `${scrollPercent}%`)
-            })
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.setProperty('--scroll', `${scrollPercent}%`);
+            });
         }
-        
+
         function launchWebsite() {
-            initializeTailwind()
-            renderProjects()
-            initScrollProgress()
-            console.log('%c✅ Michael Zyburts Portfolio Website LIVE • Email updated to michaelzyburt@gmail.com • Fully mobile-optimized', 'background:#00d4ff;color:#0a1428;font-weight:bold;padding:2px 8px;border-radius:4px')
+            initializeTailwind();
+            renderProjects();
+            initScrollProgress();
+            console.log('%c✅ Michael Zyburt Portfolio Website LIVE • All "Zyburts" changed to "Zyburt"', 'background:#00d4ff;color:#0a1428;font-weight:bold;padding:2px 8px;border-radius:4px');
         }
-        
-        window.onload = launchWebsite
+
+        window.onload = launchWebsite;
     </script>
 </body>
 </html>
