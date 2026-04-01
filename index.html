@@ -103,10 +103,86 @@
         </div>
     </section>
 
-    <!-- ABOUT, SKILLS, PUBLICATIONS, EDUCATION sections (unchanged and complete) -->
-    <!-- (Omitted here for brevity in this message, but they are fully included in the actual file you copy) -->
+    <!-- ABOUT -->
+    <section id="about" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <div class="grid md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5">
+                <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Systems & Design Background</span>
+                <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mt-3">Dual-discipline engineer focused on rapid prototyping, testing, and avionics integration</h2>
+                <div class="h-px w-12 bg-[#00d4ff] my-8"></div>
+            </div>
+            <div class="md:col-span-7 text-base md:text-lg leading-relaxed text-white/80">
+                <p class="mb-6">Brings a rigorous, hands-on approach to engineering challenges, demonstrated through the ground-up design of custom amplifiers, autonomous rovers, and maglev control systems.</p>
+                <p>Skilled in the full hardware lifecycle—from CAD modeling and BOM management to SMT soldering and rigorous performance testing. Committed to designing reliable, fault-tolerant electrical systems for mission-critical applications.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- PROJECTS SECTION -->
+    <!-- SKILLS -->
+    <section id="skills" class="bg-[#112a4a] py-16 md:py-24">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
+            <div class="flex justify-between items-baseline mb-12">
+                <div>
+                    <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Technical Skills</span>
+                    <h2 class="heading-font text-4xl md:text-5xl tracking-tighter">Engineering Analysis • Hardware • Testing</h2>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6 md:gap-8">
+                <div class="bg-[#0a1428] rounded-3xl p-8">
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-cube"></i> Engineering Analysis & Design</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li>MATLAB, Python, C++</li>
+                        <li>VHDL (FPGA)</li>
+                        <li>SolidWorks (CAD)</li>
+                        <li>PID Controllers</li>
+                        <li>Digital Signal Processing (DSP)</li>
+                        <li>Circuit Design</li>
+                    </ul>
+                </div>
+                <div class="bg-[#0a1428] rounded-3xl p-8">
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-microchip"></i> Hardware & Avionics</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li>Wire Harness Design</li>
+                        <li>PCB Rework & Repair</li>
+                        <li>Advanced Soldering (SMT, fine-pitch)</li>
+                        <li>Connector Assembly (JST, Molex, Deutsch)</li>
+                    </ul>
+                </div>
+                <div class="bg-[#0a1428] rounded-3xl p-8">
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-vial"></i> Testing & Diagnostics</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li>Oscilloscopes, Multimeters, Signal Generators</li>
+                        <li>DC Power Supplies</li>
+                        <li>Battery/Cell Characterization</li>
+                        <li>Thermal Management Testing</li>
+                    </ul>
+                </div>
+                <div class="bg-[#0a1428] rounded-3xl p-8">
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-file-lines"></i> Documentation</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li>Technical Spec Sheets</li>
+                        <li>Bill of Materials (BOM) Management</li>
+                        <li>Test Report Generation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24 bg-white/5">
+        <div class="max-w-2xl">
+            <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Publications</span>
+            <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mt-3 mb-8">Fully Differential Two-Stage CMOS Amplifier in 45 nm Technology</h2>
+            <p class="text-[#00d4ff] font-medium">Co-Author (2025)</p>
+            <ul class="mt-6 space-y-6 text-base md:text-lg leading-relaxed text-white/80">
+                <li class="flex gap-4"><span class="text-[#00d4ff] text-xl">•</span> Co-authored a technical paper presenting the design and analysis of a two-stage CMOS operational amplifier implemented in a 45 nm process.</li>
+                <li class="flex gap-4"><span class="text-[#00d4ff] text-xl">•</span> Validated performance metrics including DC power consumption, output voltage swing (3.75 Vpp), and Common-Mode Rejection Ratio (93.43 dB) using Cadence Virtuoso/Spectre simulations.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
     <section id="projects" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <div class="flex justify-between items-end mb-12">
             <div>
@@ -115,6 +191,47 @@
             </div>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="projectGrid"></div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="bg-[#112a4a] py-16 md:py-24">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mb-8">University of California, Irvine</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="text-right min-w-[140px]">
+                                <div class="text-[#00d4ff]">MS Electrical Engineering</div>
+                                <div class="text-sm text-white/60">Expected June 2026</div>
+                            </div>
+                            <div class="flex-1 text-white/70">Advanced studies in RF systems, embedded control, and avionics integration.</div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-right min-w-[140px]">
+                                <div class="text-[#00d4ff]">BS Aerospace Engineering</div>
+                                <div class="text-sm text-white/60">June 2024</div>
+                            </div>
+                            <div class="flex-1 text-white/70">Senior Capstone: Liquid-bipropellant rocket avionics & ruggedization.</div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-right min-w-[140px]">
+                                <div class="text-[#00d4ff]">BS Electrical Engineering</div>
+                                <div class="text-sm text-white/60">June 2024</div>
+                            </div>
+                            <div class="flex-1 text-white/70">Double major with focus on analog circuits, DSP, and high-altitude payloads.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center text-center">
+                    <div>
+                        <div class="text-8xl font-black text-white/10 mb-2">UCI</div>
+                        <p class="text-white/60 text-lg">Samueli School of Engineering</p>
+                        <div class="mt-8 text-xs uppercase tracking-widest text-[#00d4ff]">Proud Anteater • Built to fly</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
@@ -134,7 +251,7 @@
         </div>
     </footer>
 
-    <!-- FIXED PROJECT MODAL -->
+    <!-- PROJECT MODAL (fixed wide layout) -->
     <div id="projectModal" onclick="if(event.target === this) closeModal()" class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
         <div onclick="event.stopImmediatePropagation()" class="modal bg-[#0a1428] max-w-6xl w-full max-h-[92vh] overflow-hidden rounded-3xl shadow-2xl flex flex-col">
             <div class="sticky top-0 bg-[#0a1428] border-b border-white/10 px-8 py-5 flex justify-between items-center z-10">
@@ -146,6 +263,8 @@
     </div>
 
     <script>
+        function initializeTailwind() { tailwind.config = { content: [], theme: { extend: {} } }; }
+
         const projectsData = [
             { id: 1, title: "Analog Circuit Design & Amplifier Development", category: "Electronics", image: "board1.jpg", description: "Executed the full-cycle design and fabrication of a custom multi-stage amplifier using discrete transistors. Unlike pre-packaged IC solutions, this project required a 'first-principles' approach, demanding precise calculation of DC operating points and small-signal parameters to meet strict specifications for gain, bandwidth, and input/output impedance. The final prototype demonstrated the ability to translate theoretical models into functional, high-fidelity hardware.", bullets: ["Circuit Topology Design: Selected and configured amplifier stages (e.g., Common Emitter/Source, Differential Pair) to optimize for specific trade-offs between voltage gain and output swing.", "Component Level Calculation: Manually calculated bias resistor networks and coupling capacitor values to establish stable Q-points and ensure linear operation across the desired frequency range.", "Stability Analysis: Diagnosed and mitigated parasitic oscillations and ringing during the breadboarding phase using compensation techniques and improved grounding strategies.", "Performance Verification: Validated design requirements by measuring key metrics—including voltage gain (Av), slew rate, and Total Harmonic Distortion (THD)—using oscilloscopes and signal generators."], imageCaption: "Multi-stage transistor amplifier prototype on the bench" },
             { id: 2, title: "Rocket Electrical Systems & Avionics (Senior Capstone)", category: "Rocket", image: "usb.png", description: "Served as a key engineer for a multidisciplinary team (2022-2023) tasked with designing a liquid-bipropellant launch vehicle targeting a collegiate altitude record. The mission profile demanded a ruggedized avionics suite capable of surviving high-vibration ascent and extreme G-forces. My role focused on the physical ruggedization of the electronics and the integrity of the data acquisition systems.", bullets: ["Electro-Mechanical Packaging: Utilized SolidWorks to model and simulate the Avionics (AV) Bulkhead, designing custom 3D-printed circuit mounts and retention brackets to secure hardware against flight loads.", "Data Acquisition (DAQ) Hardware: Integrated sensor board components for mission-critical telemetry, specifically architecting the localized SD Memory Card interface to ensure redundant, non-volatile flight data storage.", "Interconnect Design: Engineered the wire harness routing and connectorization strategy, ensuring secure locking mechanisms for all avionics and fittings to prevent disconnection during stage separation or chute deployment."], imageCaption: "Full liquid-bipropellant rocket CAD render + avionics packaging, DAQ hardware, and interconnect design infographic" },
@@ -208,8 +327,16 @@
             document.body.style.overflow = 'visible';
         }
 
-        function navigateToSection(section) { const el = document.getElementById(section); if (el) el.scrollIntoView({ behavior: 'smooth' }); }
-        function toggleMobileMenu() { const menu = document.getElementById('mobileMenu'); menu.classList.toggle('hidden'); }
+        function navigateToSection(section) {
+            const el = document.getElementById(section);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
         function copyContact() {
             const email = "michaelzyburt@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
@@ -218,6 +345,7 @@
                 setTimeout(() => { footer.innerHTML = `${email} <span class="text-xs">(click to copy)</span>`; }, 2200);
             });
         }
+
         function initScrollProgress() {
             const progressBar = document.getElementById('scrollProgress');
             window.addEventListener('scroll', () => {
@@ -227,12 +355,14 @@
                 progressBar.style.setProperty('--scroll', `${scrollPercent}%`);
             });
         }
+
         function launchWebsite() {
             initializeTailwind();
             renderProjects();
             initScrollProgress();
-            console.log('%c✅ Complete website loaded - modal now shows full description + What I Learned next to photos', 'background:#00d4ff;color:#0a1428;font-weight:bold;padding:2px 8px;border-radius:4px');
+            console.log('%c✅ COMPLETE WEBSITE LOADED - All sections & modal now display correctly', 'background:#00d4ff;color:#0a1428;font-weight:bold;padding:2px 8px;border-radius:4px');
         }
+
         window.onload = launchWebsite;
     </script>
 </body>
