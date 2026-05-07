@@ -23,6 +23,203 @@
         .nav-link:hover::after { width: 100%; }
         .scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, #00d4ff var(--scroll), transparent var(--scroll)); z-index: 50; width: 100%; }
         @media (max-width: 640px) { .hero-text { font-size: 2.5rem; line-height: 1.1; } }
+/* === CHATBOT WIDGET === */
+#chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+}
+
+.chat-button {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #00d4ff, #00a8cc);
+  color: #0a1428;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.75rem;
+}
+
+.chat-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 380px;
+  max-height: 520px;
+  background: #112a4a;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background: #0a1428;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #0f2238;
+}
+
+.message {
+  max-width: 82%;
+  padding: 13px 17px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bot-message {
+  background: #1e3a5f;
+  align-self: flex-start;
+  border-bottom-left-radius: 6px;
+  color: #e0f2ff;
+}
+
+.user-message {
+  background: #00d4ff;
+  color: #0a1428;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+  font-weight: 500;
+}
+
+.chat-input {
+  padding: 16px 18px;
+  background: #0a1428;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.chat-input input {
+  flex: 1;
+  background: #112a4a;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 9999px;
+  padding: 13px 22px;
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.chat-input input:focus {
+  border-color: #00d4ff;
+}
+
+.chat-input button {
+  background: #00d4ff;
+  color: #0a1428;
+  border: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.chat-input button:hover {
+  background: #00a8cc;
+  transform: scale(1.05);
+}
+/* === VOICE CHATBOT EXTENSIONS === */
+.voice-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #00d4ff;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.voice-btn:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: #00d4ff;
+}
+
+.voice-btn.active {
+  background: #00d4ff;
+  color: #0a1428;
+  border-color: #00d4ff;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+}
+
+.mic-btn {
+  background: #1e3a5f;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #00d4ff;
+  width: 46px;
+  height: 46px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.mic-btn:hover {
+  background: #2a4a6f;
+}
+
+.mic-btn.listening {
+  background: #ff4757;
+  color: white;
+  animation: pulse 1.5s infinite;
+  border-color: #ff4757;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 71, 87, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+}
+
+.speaking {
+  animation: speaking-pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes speaking-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
     </style>
 </head>
 <body class="tail-container bg-[#0a1428] text-white overflow-x-hidden">
@@ -362,8 +559,301 @@
             initScrollProgress();
             console.log('%c✅ COMPLETE WEBSITE LOADED - All sections & modal now display correctly', 'background:#00d4ff;color:#0a1428;font-weight:bold;padding:2px 8px;border-radius:4px');
         }
+/* ========== CHATBOT LOGIC ========== */
+let chatOpen = false;
 
+function toggleChat() {
+  const win = document.getElementById('chat-window');
+  chatOpen = !chatOpen;
+  win.style.display = chatOpen ? 'flex' : 'none';
+
+  if (chatOpen && document.getElementById('chat-messages').children.length === 0) {
+    setTimeout(() => {
+      addBotMessage("Hi! I'm Michael's AI assistant. I can tell you about his projects, education, skills, or anything else on the site. What would you like to know?");
+    }, 300);
+  }
+}
+
+function addBotMessage(text) {
+  const container = document.getElementById('chat-messages');
+  const msg = document.createElement('div');
+  msg.className = 'message bot-message';
+  msg.innerHTML = text;
+  container.appendChild(msg);
+  container.scrollTop = container.scrollHeight;
+}
+
+function addUserMessage(text) {
+  const container = document.getElementById('chat-messages');
+  const msg = document.createElement('div');
+  msg.className = 'message user-message';
+  msg.textContent = text;
+  container.appendChild(msg);
+  container.scrollTop = container.scrollHeight;
+}
+
+function sendMessage() {
+  const input = document.getElementById('chat-input-field');
+  const text = input.value.trim();
+  if (!text) return;
+
+  addUserMessage(text);
+  input.value = '';
+
+  setTimeout(() => {
+    const reply = getBotResponse(text);
+    addBotMessage(reply);
+  }, 650);
+}
+
+function getBotResponse(query) {
+  const q = query.toLowerCase().trim();
+
+  // Specific project questions first
+  if (q.includes('rocket') || q.includes('avionics') || q.includes('capstone')) {
+    return "For the Rocket Electrical Systems project, Michael was the key avionics engineer. He designed the AV bulkhead in SolidWorks, integrated DAQ hardware with redundant SD card logging, and engineered robust interconnects that survived stage separation and chute deployment. The team aimed for a collegiate altitude record!";
+  }
+  if (q.includes('solar') || q.includes('airplane') || q.includes('propulsion')) {
+    return "On the Solar Airplane, Michael led propulsion analysis. He used Python and MATLAB to model drag-vs-power trade-offs from the solar panels, ran hardware-in-the-loop tests, and helped select the optimal motor/propeller combination for maximum endurance.";
+  }
+  if (q.includes('balloon') || q.includes('high-altitude') || q.includes('payload')) {
+    return "The High-Altitude Environmental Research payload was a solo project reaching 31 km. Michael handled thermal modeling, sensor calibration (CO₂, pressure, humidity), passive cooling for -60°C conditions, and full systems integration including video/audio recording.";
+  }
+  if (q.includes('levitation') || q.includes('maglev') || q.includes('electromagnetic')) {
+    return "Michael's Electromagnetic Levitation Device uses real-time sensor feedback to keep a magnet floating in mid-air. He wound custom electromagnets, built the analog control circuit, and solved thermal and noise challenges — pure hands-on physics and electronics!";
+  }
+
+  // General topics
+  if (q.includes('project') || q.includes('projects')) {
+    return "Michael has completed 13 engineering projects! Highlights include the Solar Airplane, Rocket Avionics, High-Altitude Balloon, multiple autonomous rovers (sensor, pneumatic, RC), Cargo Plane, Home Alarm System, and a Power-Saving ML Plug. Which one would you like details on?";
+  }
+  if (q.includes('education') || q.includes('degree') || q.includes('uci') || q.includes('college')) {
+    return "Michael holds BS degrees in both Aerospace Engineering and Electrical Engineering from UC Irvine (2024) and is currently pursuing his MS in Electrical Engineering there (expected June 2026). Double major + master's — serious dedication!";
+  }
+  if (q.includes('skill') || q.includes('skills') || q.includes('technical')) {
+    return "Core strengths: MATLAB/Python/C++, SolidWorks, PCB design & advanced soldering, PID controllers, RF systems, wire harness design, battery characterization, and rigorous environmental testing. He loves turning ideas into flight-ready hardware.";
+  }
+  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('hire')) {
+    return "You can reach Michael directly at <strong>michaelzyburt@gmail.com</strong> or connect on LinkedIn: <a href='http://www.linkedin.com/in/michael-zyburt-' target='_blank' class='underline'>linkedin.com/in/michael-zyburt-</a>. He's open to avionics, embedded systems, and aerospace opportunities!";
+  }
+  if (q.includes('fun') || q.includes('fact') || q.includes('cool') || q.includes('interesting')) {
+    return "Fun fact: Michael's electromagnetic levitation device can balance a magnet indefinitely using only analog electronics and clever feedback control. No fancy microcontrollers — just pure hardware engineering!";
+  }
+  if (q.includes('hello') || q.includes('hi') || q.includes('hey') || q.includes('greet')) {
+    return "Hello! Welcome to Michael's portfolio. I'm here to answer questions about his work, background, or any of the 13 projects. What would you like to explore first?";
+  }
+
+  // Fallback
+  return "That's a great question! While I have deep knowledge of all projects and Michael's background, for the most detailed answers I recommend checking the specific project cards or emailing him directly. Is there a particular area (rockets, solar, rovers, etc.) you'd like me to focus on?";
+}
+
+/* Initialize chat on first open is handled in toggleChat() */
+/* ========== VOICE CHATBOT FEATURES ========== */
+let voiceEnabled = true;
+let recognition = null;
+let isListening = false;
+
+// Initialize Speech Recognition (if supported)
+function initSpeechRecognition() {
+  if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      document.getElementById('chat-input-field').value = transcript;
+      sendMessage();
+      stopListening();
+    };
+
+    recognition.onerror = function() {
+      stopListening();
+      addBotMessage("Sorry, I couldn't hear you clearly. Please try again or type your message.");
+    };
+
+    recognition.onend = function() {
+      stopListening();
+    };
+  }
+}
+
+function toggleVoice() {
+  voiceEnabled = !voiceEnabled;
+  const icon = document.getElementById('voice-icon');
+  const btn = document.getElementById('voice-toggle');
+  
+  if (voiceEnabled) {
+    icon.classList.remove('fa-volume-mute');
+    icon.classList.add('fa-volume-up');
+    btn.classList.remove('active');
+  } else {
+    icon.classList.remove('fa-volume-up');
+    icon.classList.add('fa-volume-mute');
+    btn.classList.add('active');
+  }
+}
+
+function speak(text) {
+  if (!voiceEnabled || !('speechSynthesis' in window)) return;
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = 1.05;
+  utterance.pitch = 1.1;
+  utterance.volume = 0.9;
+
+  // Try to use a nice voice
+  const voices = window.speechSynthesis.getVoices();
+  const preferredVoice = voices.find(v => 
+    v.name.includes('Samantha') || 
+    v.name.includes('Karen') || 
+    v.name.includes('Daniel') ||
+    v.name.includes('Google')
+  );
+  if (preferredVoice) utterance.voice = preferredVoice;
+
+  window.speechSynthesis.speak(utterance);
+}
+
+function startListening() {
+  if (!recognition) {
+    addBotMessage("Voice input is not supported in your browser. Please type your message instead.");
+    return;
+  }
+
+  const micBtn = document.getElementById('mic-btn');
+  if (!micBtn) return;
+
+  try {
+    recognition.start();
+    isListening = true;
+    micBtn.classList.add('listening');
+    micBtn.innerHTML = '<i class="fa-solid fa-microphone-slash"></i>';
+  } catch (e) {
+    addBotMessage("Could not start voice input. Please check your microphone permissions.");
+  }
+}
+
+function stopListening() {
+  if (!recognition) return;
+  
+  const micBtn = document.getElementById('mic-btn');
+  if (micBtn) {
+    micBtn.classList.remove('listening');
+    micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+  }
+  isListening = false;
+}
+
+// Override the existing sendMessage to add voice
+const originalSendMessage = window.sendMessage || function() {};
+window.sendMessage = function() {
+  originalSendMessage();
+  
+  // Speak the last bot message after a short delay
+  setTimeout(() => {
+    const messages = document.getElementById('chat-messages');
+    const lastBotMessage = messages.querySelector('.bot-message:last-child');
+    if (lastBotMessage && voiceEnabled) {
+      speak(lastBotMessage.textContent);
+    }
+  }, 800);
+};
+
+// Add microphone button to input area
+function addMicButton() {
+  const inputContainer = document.querySelector('.chat-input');
+  if (!inputContainer || document.getElementById('mic-btn')) return;
+
+  const micBtn = document.createElement('button');
+  micBtn.id = 'mic-btn';
+  micBtn.className = 'mic-btn ml-2';
+  micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+  micBtn.title = 'Speak your message';
+  micBtn.onclick = () => {
+    if (isListening) {
+      stopListening();
+    } else {
+      startListening();
+    }
+  };
+
+  inputContainer.appendChild(micBtn);
+}
+
+// Initialize everything when chat opens
+const originalToggleChat = window.toggleChat || function() {};
+window.toggleChat = function() {
+  originalToggleChat();
+  
+  setTimeout(() => {
+    if (document.getElementById('chat-window').style.display === 'flex') {
+      addMicButton();
+      initSpeechRecognition();
+      
+      // Load voices for better TTS
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.getVoices();
+      }
+    }
+  }, 100);
+};
+
+// Make voice toggle button visible by default
+setTimeout(() => {
+  const voiceBtn = document.getElementById('voice-toggle');
+  if (voiceBtn) voiceBtn.style.display = 'flex';
+}, 500);
         window.onload = launchWebsite;
     </script>
+<!-- FLOATING CHATBOT WIDGET -->
+<div id="chat-widget">
+  <!-- Chat Button -->
+  <div onclick="toggleChat()" class="chat-button" title="Chat with Michael's AI Assistant">
+    <i class="fa-solid fa-robot"></i>
+  </div>
+
+  <!-- Chat Window -->
+  <div id="chat-window" class="chat-window">
+    <!-- Header -->
+    <div class="chat-header">
+  <div class="flex items-center gap-x-3">
+    <div class="w-9 h-9 bg-gradient-to-br from-[#00d4ff] to-[#00a8cc] rounded-2xl flex items-center justify-center text-[#0a1428] shadow-inner">
+      <i class="fa-solid fa-robot"></i>
+    </div>
+    <div>
+      <div class="font-semibold text-white tracking-tight">Portfolio Assistant</div>
+      <div class="text-[10px] text-[#00d4ff] flex items-center gap-x-1.5">
+        <span class="inline-block w-1.5 h-1.5 bg-[#00d4ff] rounded-full animate-pulse"></span>
+        ONLINE • VOICE ENABLED
+      </div>
+    </div>
+  </div>
+  
+  <div class="flex items-center gap-x-2">
+    <!-- Speaker Toggle -->
+    <button id="voice-toggle" onclick="toggleVoice()" class="voice-btn" title="Toggle voice output">
+      <i class="fa-solid fa-volume-up" id="voice-icon"></i>
+    </button>
+    
+    <button onclick="toggleChat()" class="text-white/60 hover:text-white text-2xl leading-none px-1">×</button>
+  </div>
+</div>
+
+    <!-- Messages -->
+    <div id="chat-messages" class="chat-messages"></div>
+
+    <!-- Input -->
+    <div class="chat-input">
+      <input type="text" id="chat-input-field" placeholder="Ask about projects, skills, or experience..." 
+             onkeypress="if (event.key === 'Enter') sendMessage()">
+      <button onclick="sendMessage()" title="Send message">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
